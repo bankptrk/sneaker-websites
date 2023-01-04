@@ -2,7 +2,7 @@
 
 ### Installation
 
-You want to install sql from this link
+You want to install sql from this step.
 
 1. Get a sql [https://github.com/bankptrk/sneaker-websites/files/10344565/sneakers-4.sql.zip](https://github.com/bankptrk/sneaker-websites/files/10344565/sneakers-4.sql.zip)
 2. Open XAMPP and go to Manage Servers
