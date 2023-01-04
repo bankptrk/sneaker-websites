@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {margin: 0; font-family: Arial, Helvetica, sans-serif;}
+            * {box-sizing: border-box}
+
+        .headertop {
+            overflow: hidden;
+            background: #f1f1f1;
+            padding-right: 10px;
+        }
+
+        .headertop a {
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 13px; 
+            line-height: 10px;
+            border-radius: 4px;
+        }
+
+        .headertop a:hover {
+            background-color: #ddd;
+        }
+
+        .headertop-right {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="headertop">
+        <div class="headertop-right">
+            <a href="admin.php">Admin</a>
+            <a href="logout.php">ออกจากระบบ</a>
+        </div>
+    </div>
+    <script>
+        async function getDataFromAPI(){
+            let response = await fetch('https://myapi.paratipsnjn.repl.co/products')
+            let rawData = await response.text()
+            let objectData = JSON.parse(rawData)
+            let result = document.getElementById('result')
+
+            for(let i=0;i<objectData.data.length;i++){
+                let content = 'username: '+ objectData.data[i].username+':'
+                content += '('+objectData.data[i].productname+')'
+
+                let li = document.createElement('li')
+                li.innerHTML = content
+                result.appendChild(li)
+                }
+            }
+        getDataFromAPI()
+    </script>
+    <div>
+        <h1>ข้อมูลจำลอง username</h1>
+        <ol id="result"></ol>
+    </div>
+</body>
+</html>
